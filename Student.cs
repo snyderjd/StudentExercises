@@ -21,20 +21,18 @@ namespace StudentExercises
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string SlackHandle { get; set; }
-        public string CohortName { get; set; }
+        public Cohort Cohort { get; set; }
         public List<Exercise> Exercises { get; set; }
 
-
         // Constructor
-        public Student(string firstName, string lastName, string slackHandle, string cohortName)
+        public Student(string firstName, string lastName, string slackHandle, Cohort cohort)
         {
             Exercises = new List<Exercise>();
             FirstName = firstName;
             LastName = lastName;
             SlackHandle = slackHandle;
-            CohortName = cohortName;
+            Cohort = cohort;
         }
-
 
     }
 }

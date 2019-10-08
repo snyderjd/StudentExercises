@@ -16,6 +16,27 @@ namespace StudentExercises
 {
     public class Instructor
     {
+        // Properties
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string SlackHandle { get; set; }
+        public Cohort Cohort { get; set; }
+        public string Specialty { get; set; }
 
+        // Constructor
+        public Instructor(string firstName, string lastName, string slackHandle, Cohort cohort, string specialty)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            SlackHandle = slackHandle;
+            Specialty = specialty;
+            Cohort = cohort;
+        }
+
+        // Method to assign an exercise to a student
+        public void AssignExercise(Exercise exercise, Student student)
+        {
+            student.Exercises.Add(exercise);
+        }
     }
 }

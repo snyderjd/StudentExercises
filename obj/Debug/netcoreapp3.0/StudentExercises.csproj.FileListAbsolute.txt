@@ -1,0 +1,11 @@
+/home/snyderjosephd/nss/workspace/csharp/exercises/StudentExercises/bin/Debug/netcoreapp3.0/StudentExercises
+/home/snyderjosephd/nss/workspace/csharp/exercises/StudentExercises/bin/Debug/netcoreapp3.0/StudentExercises.deps.json
+/home/snyderjosephd/nss/workspace/csharp/exercises/StudentExercises/bin/Debug/netcoreapp3.0/StudentExercises.runtimeconfig.json
+/home/snyderjosephd/nss/workspace/csharp/exercises/StudentExercises/bin/Debug/netcoreapp3.0/StudentExercises.runtimeconfig.dev.json
+/home/snyderjosephd/nss/workspace/csharp/exercises/StudentExercises/bin/Debug/netcoreapp3.0/StudentExercises.dll
+/home/snyderjosephd/nss/workspace/csharp/exercises/StudentExercises/bin/Debug/netcoreapp3.0/StudentExercises.pdb
+/home/snyderjosephd/nss/workspace/csharp/exercises/StudentExercises/obj/Debug/netcoreapp3.0/StudentExercises.csprojAssemblyReference.cache
+/home/snyderjosephd/nss/workspace/csharp/exercises/StudentExercises/obj/Debug/netcoreapp3.0/StudentExercises.AssemblyInfoInputs.cache
+/home/snyderjosephd/nss/workspace/csharp/exercises/StudentExercises/obj/Debug/netcoreapp3.0/StudentExercises.AssemblyInfo.cs
+/home/snyderjosephd/nss/workspace/csharp/exercises/StudentExercises/obj/Debug/netcoreapp3.0/StudentExercises.dll
+/home/snyderjosephd/nss/workspace/csharp/exercises/StudentExercises/obj/Debug/netcoreapp3.0/StudentExercises.pdb

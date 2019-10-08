@@ -13,13 +13,13 @@ namespace StudentExercises
 {
     public class Cohort
     {
-        private string _name { get; set; }
+        public string Name { get; set; }
         public List<Student> Students { get; set; }
         public List<Instructor> Instructors { get; set; }
 
         public Cohort(string name)
         {
-            _name = name;
+            Name = name;
             Students = new List<Student>();
             Instructors = new List<Instructor>();
         }
