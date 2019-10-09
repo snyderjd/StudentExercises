@@ -35,6 +35,7 @@ namespace StudentExercises
             Student allie = new Student("Allie", "Patton", "Allison Patton", day34);
             Student george = new Student("George", "Kelley", "George Kelley", day35);
             Student taylor = new Student("Taylor", "Carroll", "Taylor Carroll", day35);
+            Student alex = new Student("Alex", "Rumsey", "Alex Rumsey", day33);
 
             // Assign students to their respective cohorts
             day34.Students.Add(joe);
@@ -43,46 +44,49 @@ namespace StudentExercises
             day34.Students.Add(allie);
             day35.Students.Add(george);
             day35.Students.Add(taylor);
+            day33.Students.Add(alex);
 
             // Create instructors
             Instructor andy = new Instructor("Andy", "Collins", "Andy C", day34, "C#");
-            Instructor bryan = new Instructor("Bryan", "Nilsen", "Bryan N", day34, "High fives");
+            Instructor bryan = new Instructor("Bryan", "Nilsen", "Bryan N", day33, "High fives");
             Instructor steve = new Instructor("Steve", "Brownlee", "Steve B", day35, "Dad jokes");
 
             // Assign instructors to their respective cohorts
             day34.Instructors.Add(andy);
-            day34.Instructors.Add(bryan);
+            day33.Instructors.Add(bryan);
             day35.Instructors.Add(steve);
 
-            // Have andy assign chickenMoney and fizzBuzz to each of the students in day34
-            andy.AssignExercise(chickenMonkey, joe);
-            andy.AssignExercise(fizzBuzz, joe);
-            andy.AssignExercise(chickenMonkey, brian);
-            andy.AssignExercise(fizzBuzz, brian);
-            andy.AssignExercise(chickenMonkey, curtis);
-            andy.AssignExercise(fizzBuzz, curtis);
-            andy.AssignExercise(chickenMonkey, allie);
-            andy.AssignExercise(fizzBuzz, allie);
+            foreach(Instructor instructor in day34.Instructors)
+            {
+                foreach(Student student in day34.Students)
+                {
+                    instructor.AssignExercise(chickenMonkey, student);
+                    instructor.AssignExercise(fizzBuzz, student);
+                }
+            }
 
-            // Have bryan assign urbanPlanner and englishIdioms to each of the students in day34
-            bryan.AssignExercise(urbanPlanner, joe);
-            bryan.AssignExercise(englishIdioms, joe);
-            bryan.AssignExercise(urbanPlanner, brian);
-            bryan.AssignExercise(englishIdioms, brian);
-            bryan.AssignExercise(urbanPlanner, curtis);
-            bryan.AssignExercise(englishIdioms, curtis);
-            bryan.AssignExercise(urbanPlanner, allie);
-            bryan.AssignExercise(englishIdioms, allie);
+            foreach(Instructor instructor in day33.Instructors)
+            {
+                foreach(Student student in day33.Students)
+                {
+                    instructor.AssignExercise(dailyJournal, student);
+                    instructor.AssignExercise(frontEndCapstone, student);
+                }
+            }
 
-            // Have steve assign dailyJournal and frontEndCapstone to each student in day35
-            steve.AssignExercise(frontEndCapstone, george);
-            steve.AssignExercise(dailyJournal, george);
-            steve.AssignExercise(frontEndCapstone, taylor);
-            steve.AssignExercise(dailyJournal, taylor);
+            foreach(Instructor instructor in day35.Instructors)
+            {
+                foreach(Student student in day35.Students)
+                {
+                    instructor.AssignExercise(urbanPlanner, student);
+                    instructor.AssignExercise(englishIdioms, student);
+                }
+            }
 
-            // Create a list of all the students
-            List<Student> allStudents = new List<Student>(){
-                joe, brian, curtis, allie, george, taylor
+            // Create a list of all the cohorts
+            List<Cohort> allCohorts = new List<Cohort>()
+            {
+                day33, day34, day35
             };
 
             // Create a list of all the exercises
@@ -94,20 +98,19 @@ namespace StudentExercises
             foreach(Exercise exercise in allExercises)
             {
                 Console.Write($"{exercise.Name}: ");
-                foreach(Student student in allStudents)
+                foreach(Cohort cohort in allCohorts)
                 {
-                    if (student.Exercises.Contains(exercise))
+                    foreach(Student student in cohort.Students)
                     {
-                        Console.Write($"{student.FirstName} {student.LastName}, ");
+                        if (student.Exercises.Contains(exercise))
+                        {
+                            Console.Write($"{student.FirstName} {student.LastName}, ");
+                        }
                     }
+                    Console.WriteLine();
+
                 }
-                Console.WriteLine();
             }
-
-
-
-
-
 
         }
     }
