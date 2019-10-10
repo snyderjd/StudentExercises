@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace StudentExercises
@@ -83,34 +84,72 @@ namespace StudentExercises
                 }
             }
 
-            // Create a list of all the cohorts
+            // Create master lists for all cohorts, exercises, students, and instructors
             List<Cohort> allCohorts = new List<Cohort>()
             {
                 day33, day34, day35
             };
 
-            // Create a list of all the exercises
             List<Exercise> allExercises = new List<Exercise>(){
                 chickenMonkey, fizzBuzz, dailyJournal, frontEndCapstone, urbanPlanner, englishIdioms
+            };
+
+            List<Student> allStudents = new List<Student>(){
+                joe, brian, curtis, allie, george, taylor, alex
+            };
+
+            List<Instructor> allInstructors = new List<Instructor>(){
+                andy, bryan, steve
             };
 
             // Generate a report that displays which students are working on which exercises
             foreach(Exercise exercise in allExercises)
             {
-                Console.Write($"{exercise.Name}: ");
+                // Console.WriteLine($"----- {exercise.Name} ----- ");
                 foreach(Cohort cohort in allCohorts)
                 {
                     foreach(Student student in cohort.Students)
                     {
                         if (student.Exercises.Contains(exercise))
                         {
-                            Console.Write($"{student.FirstName} {student.LastName}, ");
+                            // Console.WriteLine($"{student.FirstName} {student.LastName}, ");
                         }
                     }
-                    Console.WriteLine();
+                    
                 }
             }
 
+            // List exercises for the JavaScript language by using the Where() LINQ method.
+            List<Exercise> javascriptExercise = allExercises
+                .Where(exercise => exercise.Language == "JavaScript").ToList();
+
+            // Print out all the javascript exercises
+            foreach(Exercise exercise in javascriptExercise)
+            {
+                // Console.WriteLine($"{exercise.Name}: {exercise.Language}");
+            }
+
+            // List students in a particular cohort by using the Where() LINQ method.
+            List<Student> cohort34Students = allStudents
+                .Where(student => student.Cohort.Name == "Day Cohort 34").ToList();
+
+            // Print out all the students in cohort 34
+            // Console.WriteLine("===== Cohort 34 Students =====");
+            foreach(Student student in cohort34Students)
+            {
+                // Console.WriteLine($"{student.FirstName} {student.LastName}");
+            }
+
+            // List instructors in a particular cohort by using the Where() LINQ method
+            List<Instructor> cohort34Instructors = allInstructors
+                .Where(Instructor => Instructor.Cohort.Name == "Day Cohort 34").ToList();
+
+            // Print out all the instructors in cohort 34
+            Console.WriteLine("===== Cohort 34 Instructors =====");
+            foreach(Instructor instructor in cohort34Instructors)
+            {
+                Console.WriteLine($"{instructor.FirstName} {instructor.LastName}");
+            }
         }
     }
 }
