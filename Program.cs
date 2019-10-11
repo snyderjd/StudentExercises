@@ -145,11 +145,41 @@ namespace StudentExercises
                 .Where(Instructor => Instructor.Cohort.Name == "Day Cohort 34").ToList();
 
             // Print out all the instructors in cohort 34
-            Console.WriteLine("===== Cohort 34 Instructors =====");
+            // Console.WriteLine("===== Cohort 34 Instructors =====");
             foreach(Instructor instructor in cohort34Instructors)
             {
-                Console.WriteLine($"{instructor.FirstName} {instructor.LastName}");
+                // Console.WriteLine($"{instructor.FirstName} {instructor.LastName}"); 
             }
+
+            // Sort the students by their last name
+            List<Student> sortedStudents = allStudents
+                .OrderBy(student => student.LastName).ToList();
+
+            // Print out a list of the sorted students
+            // Console.WriteLine("===== Sorted Students =====");
+            foreach(Student student in sortedStudents)
+            {
+                // Console.WriteLine($"{student.FirstName} {student.LastName}");
+            }
+
+            // Display any students that aren't working on any exercises (Make sure one of your student instances don't have any exercises. Create a new student if you need to.)
+
+            Student michael = new Student("Michael", "Stiles", "mstiles", day34);
+            Student michelle = new Student("Michelle", "Jimenez", "mjimenez", day34);
+            allStudents.Add(michael);
+            allStudents.Add(michelle);
+
+            List<Student> slackers = allStudents
+                .Where(student => student.Exercises.Count() == 0).ToList();
+
+            // Print all the students that aren't working on any exercises
+            // Console.WriteLine("=== Students with No Exercises ===");
+            foreach(Student student in slackers)
+            {
+                // Console.WriteLine($"{student.FirstName} {student.LastName}");
+            }
+
+            
         }
     }
 }
