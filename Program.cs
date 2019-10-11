@@ -84,6 +84,9 @@ namespace StudentExercises
                 }
             }
 
+            // Assign extra exercises to one student
+            andy.AssignExercise(urbanPlanner, brian);
+
             // Create master lists for all cohorts, exercises, students, and instructors
             List<Cohort> allCohorts = new List<Cohort>()
             {
@@ -179,7 +182,41 @@ namespace StudentExercises
                 // Console.WriteLine($"{student.FirstName} {student.LastName}");
             }
 
+            // Which student is working on the most exercises? Make sure one of your students has more exercises than the others
+            // Sort the students by Exercises.Count()
+            List<Student> studentsByExerciseCount = allStudents
+                .OrderByDescending(student => student.Exercises.Count()).ToList();
+
+            Student topStudent = studentsByExerciseCount[0];
+
+            // Print studentsByExerciseCount and print the top student
+            // Console.WriteLine("===== Top Student =====");
+            // Console.WriteLine($"{topStudent.FirstName} {topStudent.LastName}");
+            // Console.WriteLine();
+            // Console.WriteLine("===== Students By Number of Exercises =====");
+            foreach(Student student in studentsByExerciseCount)
+            {
+                // Console.WriteLine($"{student.FirstName} {student.LastName}: {student.Exercises.Count()} exercises");
+            }
+
+            // Display how many students are in each cohort
+            var counts = allStudents.GroupBy(student => student.Cohort)
+                .Select(group => new {
+                    Cohort = group.Key,
+                    NumStudents = group.Count()
+                });
+
+            // Print number of students in each cohort
+            Console.WriteLine("===== Number of Students =====");
+            foreach(var cohort in counts)
+            {
+                Console.WriteLine($"{cohort.Cohort.Name}: {cohort.NumStudents}");
+            }
+
             
+
+
+
         }
     }
 }
