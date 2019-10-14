@@ -117,6 +117,8 @@ List<Exercise> exercises = new List<Exercise>() {
 1. Which student is working on the most exercises? Make sure one of your students has more exercises than the others.
 1. How many students in each cohort?# Inheritance for Students and Instructors
 
+# Part 3 - Inheritance for Students and Instructors
+
 Find any common properties and/or behaviors on students and instructors and create a new parent class for both of them to inherit from.
 
 ```cs
